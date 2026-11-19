@@ -1,0 +1,173 @@
+{
+ "tag": "LIVD",
+ "outcome_column": "mort__간질환_deaths",
+ "outcome_label_en": "Liver disease deaths (K70-K76, Statistics Korea cause-of-death statistics, annual, place of residence)",
+ "disease_en": "Liver disease mortality",
+ "disease_ko": "간질환 사망",
+ "forced": [
+  "eloc__DT_1YL20421E__1인당도시지역면적현황__도시지역인구",
+  "eloc__DT_1YL20981__인구천명당의료기관종사의사수＜br＞(A÷B×1000)",
+  "eloc__DT_1YL20701__남녀성비＜br＞(A÷B×100)",
+  "eloc__DT_1YL20891__재정자주도(세입과목개편전)",
+  "ext__pop80_share"
+ ],
+ "negative_controls": [
+  "eloc__DT_1YL21081__주민만명당화재발생건수＜br＞(A÷B×10000)",
+  "ext__breakfast_eating_rate"
+ ],
+ "offset_E_column": "E_sexage",
+ "offset_E_file": "LIVD_Esex.csv",
+ "offset_E_label": "age- and sex-standardised E (18 five-year bands to 85+ by sex)",
+ "graph": "593-edge contact graph (BRCA 2026-11-04 graph_audit), ST_GRAPH=04_분석/LIVD/graph_593.graph",
+ "population_override": [
+  {
+   "year": 2023,
+   "fbd_region": "경상남도창원시",
+   "population": 1009038,
+   "source": "KOSIS DT_1YL20651E 2023 통합창원시 계; FBD_DATA_ZIP/2023.csv 창원 블록이 2022값 복사(유방암 11/4 population_final_audit)"
+  }
+ ],
+ "sensitivity_only_extra": [
+  "ext__liver_suspect_share",
+  "ext__outside_care_share",
+  "kchs__DT_H_OBE_OBE__SR",
+  "kchs__DT_H_DR_MONTH__SR"
+ ],
+ "sets": {
+  "S1_narrative_full": [
+   "kchs__DT_117075_H_DR_HIGH_WH__SR",
+   "ext__alcohol_venues_per10k",
+   "ext__hcv_notif_rate_log",
+   "chk__대사_복부비만_비율",
+   "ext__dm_suspect_share",
+   "kchs__DT_H_SM__SR",
+   "kchs__DT_H_EX_WALK__SR",
+   "kchs__DT_H_EX_PHY__SR",
+   "fac__total",
+   "ext__im_specialists_per100k",
+   "ext__basic_livelihood_rate"
+  ],
+  "S2_alcohol_viral": [
+   "kchs__DT_117075_H_DR_HIGH_WH__SR",
+   "ext__alcohol_venues_per10k",
+   "ext__hcv_notif_rate_log"
+  ],
+  "S3_metabolic_lifestyle": [
+   "chk__대사_복부비만_비율",
+   "ext__dm_suspect_share",
+   "kchs__DT_H_SM__SR",
+   "kchs__DT_H_EX_WALK__SR",
+   "kchs__DT_H_EX_PHY__SR",
+   "fac__total"
+  ],
+  "S4_care_structural": [
+   "ext__im_specialists_per100k",
+   "ext__basic_livelihood_rate"
+  ],
+  "S5_core": [
+   "kchs__DT_117075_H_DR_HIGH_WH__SR",
+   "ext__hcv_notif_rate_log",
+   "chk__대사_복부비만_비율",
+   "ext__dm_suspect_share",
+   "ext__im_specialists_per100k",
+   "ext__basic_livelihood_rate"
+  ]
+ },
+ "transform": {
+  "eloc__DT_1YL20421E__1인당도시지역면적현황__도시지역인구": "share_of_pop(도시지역인구÷population(마스터))",
+  "eloc__DT_1YL20981__인구천명당의료기관종사의사수＜br＞(A÷B×1000)": "none",
+  "eloc__DT_1YL20701__남녀성비＜br＞(A÷B×100)": "none",
+  "eloc__DT_1YL20891__재정자주도(세입과목개편전)": "none",
+  "ext__pop80_share": "none",
+  "kchs__DT_117075_H_DR_HIGH_WH__SR": "none",
+  "ext__alcohol_venues_per10k": "none",
+  "ext__hcv_notif_rate_log": "none",
+  "chk__대사_복부비만_비율": "none",
+  "ext__dm_suspect_share": "none",
+  "kchs__DT_H_SM__SR": "none",
+  "kchs__DT_H_EX_WALK__SR": "none",
+  "kchs__DT_H_EX_PHY__SR": "none",
+  "fac__total": "per100k",
+  "ext__im_specialists_per100k": "none",
+  "ext__basic_livelihood_rate": "none",
+  "eloc__DT_1YL21081__주민만명당화재발생건수＜br＞(A÷B×10000)": "none",
+  "ext__breakfast_eating_rate": "none",
+  "ext__liver_suspect_share": "none",
+  "ext__outside_care_share": "none",
+  "kchs__DT_H_OBE_OBE__SR": "none",
+  "kchs__DT_H_DR_MONTH__SR": "none"
+ },
+ "expected_direction": {
+  "kchs__DT_117075_H_DR_HIGH_WH__SR": "+",
+  "ext__alcohol_venues_per10k": "+",
+  "ext__hcv_notif_rate_log": "+",
+  "chk__대사_복부비만_비율": "+",
+  "ext__dm_suspect_share": "+",
+  "kchs__DT_H_SM__SR": "+",
+  "kchs__DT_H_EX_WALK__SR": "-",
+  "kchs__DT_H_EX_PHY__SR": "-",
+  "fac__total": "-",
+  "ext__im_specialists_per100k": "-",
+  "ext__basic_livelihood_rate": "+"
+ },
+ "evidence": {
+  "kchs__DT_117075_H_DR_HIGH_WH__SR": "gbd cirrhosis; rehm alcohol",
+  "ext__alcohol_venues_per10k": "outlet density reviews",
+  "ext__hcv_notif_rate_log": "Korea HCV epidemiology",
+  "chk__대사_복부비만_비율": "MASLD epidemiology",
+  "ext__dm_suspect_share": "diabetes and liver outcomes",
+  "kchs__DT_H_SM__SR": "smoking and liver disease",
+  "kchs__DT_H_EX_WALK__SR": "physical activity and liver",
+  "kchs__DT_H_EX_PHY__SR": "physical activity and liver",
+  "fac__total": "built environment PA",
+  "ext__im_specialists_per100k": "access to liver care",
+  "ext__basic_livelihood_rate": "alcohol harm paradox; SES and cirrhosis"
+ },
+ "rules": {
+  "likelihood": "forced-only 모형 WAIC 낮은 쪽(Poisson/NB)",
+  "set_choice": "WAIC 최소, 4 이내면 변수 적은 세트",
+  "credible": "95% CrI 1 제외",
+  "vif_drop": 10,
+  "multiverse_specs": 200,
+  "main_model_note": "Principal model = S1_narrative_full (11 district characteristics + 5 forced controls). VIF>10 retained and reported."
+ },
+ "note": "Covariates selected from the epidemiological literature on liver disease mortality: alcohol (high-risk drinking, entertainment and singing bars per 10,000), hepatitis C (2017-2024 notification rate, log, time-invariant), metabolic dysfunction (screening abdominal obesity, suspected diabetes), smoking, physical activity (walking, moderate-or-vigorous activity, public sports facilities), care capacity (internal medicine specialists) and deprivation (basic livelihood recipients). Negative controls: fires per 10,000 and breakfast eating. Comparison outcomes: chronic lower respiratory disease and Alzheimer disease deaths.",
+ "extra_columns": {
+  "ext__pop80_share": [
+   "LIVD_Esex.csv",
+   "pop80_share_raw"
+  ],
+  "ext__alcohol_venues_per10k": [
+   "EXT_canonical_pool_LIVD_261108.csv",
+   "alcohol_venues_per10k"
+  ],
+  "ext__hcv_notif_rate_log": [
+   "EXT_canonical_pool_LIVD_261108.csv",
+   "hcv_notif_rate_log"
+  ],
+  "ext__dm_suspect_share": [
+   "EXT_canonical_pool_LIVD_261108.csv",
+   "dm_suspect_share"
+  ],
+  "ext__im_specialists_per100k": [
+   "EXT_canonical_pool_LIVD_261108.csv",
+   "im_specialists_per100k"
+  ],
+  "ext__basic_livelihood_rate": [
+   "EXT_canonical_pool_LIVD_261108.csv",
+   "basic_livelihood_rate"
+  ],
+  "ext__breakfast_eating_rate": [
+   "EXT_canonical_pool_LIVD_261108.csv",
+   "breakfast_eating_rate"
+  ],
+  "ext__liver_suspect_share": [
+   "EXT_canonical_pool_LIVD_261108.csv",
+   "liver_suspect_share"
+  ],
+  "ext__outside_care_share": [
+   "EXT_canonical_pool_261106.csv",
+   "outside_care_share"
+  ]
+ }
+}
